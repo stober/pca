@@ -33,7 +33,7 @@ def compute_projections(I,pcs,m):
         w = []
         for p in pcs:
             w.append(np.dot(i - m, p))
-            projections.append(w)
+        projections.append(w)
     return projections
 
 def reconstruct(w, X, m,dim = 5):
