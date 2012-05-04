@@ -1,5 +1,14 @@
-pca
+Principle Component Analysis in Python
 
 Author: Jeremy Stober
 Contact: stober@gmail.com
 Version: 0.1
+
+This is PCA for cases where sample size is much smaller than the
+dimensionality of the thing being sampled (e.g. Eigenfaces). There are
+two versions of the main compute_pca function. One is pure Python and
+not necessarily memory efficient (due in part to the strange memory
+inefficiency of large np.dot operations and the fact that no
+operations are done inplace. There is a faster, more efficient in
+place version (which replaces the input samples with PCs) that is
+coded using Cython.
