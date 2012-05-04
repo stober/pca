@@ -25,7 +25,16 @@ def compute_pca(data):
     # note that the eigenvectors are not normed after multiplication by T^T
     pcs = np.array([d / np.linalg.norm(d) for d in pcs])
 
-    return pcs, m, s
+    return pcs, m, s, T, u
+
+def compute_projections(I,pcs,m):
+    projections = []
+    for i in I:
+        w = []
+        for p in pcs:
+            w.append(np.dot(i - m, p))
+            projections.append(w)
+    return projections
 
 def reconstruct(w, X, m,dim = 5):
     return np.dot(w[:dim],X[:dim,:]) + m
